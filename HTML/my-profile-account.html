@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iShow</title>
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/my-account-profile.css">
+</head>
+<body>
+    <header class="headerContent">
+       <h1 id="app-name">iShow</h1>
+    
+         <ul class="navbar">
+            <li><a  href="/HTML/home.html">Home</a></li>
+            <li><a href="/HTML/about.html">About</a></li>
+            <li><a href="/HTML/register.html">Register</a></li>
+            <li><a href="/HTML/login.html">Login</a></li>
+            <li><a class="active" href="/HTML/my-profile-account.html">My profile</a></li>
+         </ul>
+     
+    </header>
+
+    <main   class="content">
+       
+      
+          
+    <!--- Image taken from:<a id="acknowledge" href="https://www.freepik.com/free-vector/anonymous-avatars-grey-circles_44471922.htm#fromView=search&page=1&position=2&uuid=aec31bf0-9950-4930-8171-bac607639d01">Image by juicy_fish on Freepik</a>--> 
+
+ 
+ 
+    <label for="myFile"><div id="imgBox"><img id="profileLogo" src="" alt=""><h3>Add Profile Photo</h3></div></label>
+    <input type="file" id="myFile" name="filename" hidden onchange="handleSubmit(event)">
+    
+    <button type="button" onclick="handleSave">Save</button>
+    </main>
+
+    <footer class="footer">
+         CopyRight &copy; - 2024
+    </footer>
+   <script>
+
+   async function handleSubmit(event) {
+
+   
+ /**  $(document).ready(function (event){
+            $('#save').click(function(){
+              
+
+           });
+        
+        
+ 
+});**/
+const input = document.querySelector('input[type="file"]');
+ 
+input.addEventListener('change', event => {
+    
+  const imageFile = event.target.files[0];
+ 
+  localStorage.setItem('image', `${URL.createObjectURL(event.target.files[0])}`)
+  
+const reader = new FileReader();
+reader.addEventListener('load', () => {
+    const img = document.createElement('img');
+    img.id = 'profileLogo'
+ img.setAttribute('src', `${localStorage.getItem('image')}`)
+    document.getElementById('imgBox').replaceWith(img)
+   
+});
+
+reader.readAsText(imageFile);
+
+ 
+});
+   }
+
+    
+   </script>
+</body>
+</html>

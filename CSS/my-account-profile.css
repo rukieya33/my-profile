@@ -1,0 +1,28 @@
+#profileLogo{
+    border-radius: 20px;
+    width: 300px;
+    height: 500px;
+    position: relative;
+    left:530px;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#acknowledge{
+  position: relative;
+  left:100px;
+}
+  label[for=myFile]{
+  
+  margin: 10px;
+  position: relative;
+  right:300px;
+  color: white;
+  display: block;
+  font-size: large;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+
+}

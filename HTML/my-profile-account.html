@@ -29,7 +29,7 @@
 
  
  
-    <label for="myFile"><div id="imgBox"><img id="profileLogo" src="" alt=""><h3>Add Profile Photo</h3></div></label>
+    <label for="myFile"><div id="imgBox"><h3>Add Profile Photo</h3></div></label>
     <input type="file" id="myFile" name="filename" hidden onchange="handleSubmit(event)">
     
     <button type="button" onclick="handleSave">Save</button>
@@ -40,39 +40,11 @@
     </footer>
    <script>
 
-   async function handleSubmit(event) {
-
-   
- /**  $(document).ready(function (event){
-            $('#save').click(function(){
-              
-
-           });
-        
-        
- 
-});**/
-const input = document.querySelector('input[type="file"]');
- 
-input.addEventListener('change', event => {
-    
-  const imageFile = event.target.files[0];
- 
-  localStorage.setItem('image', `${URL.createObjectURL(event.target.files[0])}`)
+  function handleSubmit(event) {
+      
+     document.getElementById('imgBox').innerHTML = `<img id="profileLogo" src=${URL.createObjectURL(event.target.files[0])}>`
   
-const reader = new FileReader();
-reader.addEventListener('load', () => {
-    const img = document.createElement('img');
-    img.id = 'profileLogo'
- img.setAttribute('src', `${localStorage.getItem('image')}`)
-    document.getElementById('imgBox').replaceWith(img)
-   
-});
 
-reader.readAsText(imageFile);
-
- 
-});
    }
 
     
